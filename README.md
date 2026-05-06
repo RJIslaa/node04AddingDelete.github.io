@@ -41,5 +41,4 @@ It will now appear like this where the row has editable boxes in it's columns!
 
 Let's pretend we made a mistake prior to this the color of the car wasn't Blue but Black.
 We can edit it and change the color by replacing blue and typing in black in the box and hit save if we don't wanna edit anything press cancel.
-<img width="1920" height="959" alt="image" src="https://github.com/user-attachments/assets/ab8e6d74-8d96-44d7-ab15-54f8091cc822" />
-
+<img width="1916" height="948" alt="image" src="https://github.com/user-attachments/assets/0065b9db-f7f7-40d9-a66f-42a754c39a04" />
