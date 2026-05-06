@@ -27,6 +27,7 @@
         <th>Make</th>
         <th>Year</th>
         <th>Color</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody id="carsTableBody"></tbody>
@@ -51,6 +52,10 @@
           <td>${car.make}</td>
           <td>${car.year}</td>
           <td>${car.color}</td>
+          <td>
+            <button onclick="deleteCar(${car.id})">Delete</button>
+            <button onclick="editCar(${car.id})">Edit</button>
+          </td>
         `;
 
         tableBody.appendChild(row);
@@ -78,7 +83,52 @@
       form.reset();
       loadCars();
     });
+async function deleteCar(id) {
+  if (!confirm("Delete this car?")) return;
 
+  await fetch(`/api/cars/${id}`, { method: "DELETE" });
+  loadCars();
+}
+
+async function editCar(id) {
+  const response = await fetch(`/api/cars/${id}`);
+  const car = await response.json();
+
+  // Find the row and replace with editable fields
+  const rows = tableBody.querySelectorAll("tr");
+  rows.forEach(row => {
+    if (row.querySelector("td")?.textContent == id) {
+      row.innerHTML = `
+        <td>${car.id}</td>
+        <td><input value="${car.brand}" id="edit-brand"></td>
+        <td><input value="${car.make}" id="edit-make"></td>
+        <td><input value="${car.year}" id="edit-year" type="number"></td>
+        <td><input value="${car.color}" id="edit-color"></td>
+        <td>
+          <button onclick="saveEdit(${car.id})">Save</button>
+          <button onclick="loadCars()">Cancel</button>
+        </td>
+      `;
+    }
+  });
+}
+
+async function saveEdit(id) {
+  const updated = {
+    brand: document.getElementById("edit-brand").value,
+    make: document.getElementById("edit-make").value,
+    year: document.getElementById("edit-year").value,
+    color: document.getElementById("edit-color").value
+  };
+
+  await fetch(`/api/cars/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updated)
+  });
+
+  loadCars();
+}
     loadCars();
   </script>
 </body>
