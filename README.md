@@ -22,7 +22,6 @@ let's say we wanna delete the row with Tesla.
 <img width="1917" height="1013" alt="image" src="https://github.com/user-attachments/assets/efbf07ff-a4cf-45fa-a622-b414f196914d" />
 We press the delete button for the row Tesla is on. A Prompt pops up as a warning sign asking if we are sure?
 
-<img width="1917" height="1013" alt="image" src="https://github.com/user-attachments/assets/58f531fc-a2a5-4fe0-b56e-bd46015c7c60" />
 
 <img width="1919" height="951" alt="image" src="https://github.com/user-attachments/assets/731f319b-791b-4ff1-99f8-be8da2c1551f" />
 
