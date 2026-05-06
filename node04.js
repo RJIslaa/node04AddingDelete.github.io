@@ -35,6 +35,7 @@ app.get("/api/cars/:id", (req, res) => {
 
 // POST new car
 app.post("/api/cars", (req, res) => {
+  console.log("Received POST request with body:", req.body);
   const { brand, make, year, color } = req.body;
 
   const newCar = {
